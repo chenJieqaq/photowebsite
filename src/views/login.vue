@@ -17,15 +17,15 @@
   </div>
 </template>
 <script>
-import Background from "../assets/images/background.jpg";
+import Background from '../assets/images/background.jpg';
 export default {
   Background: Background,
-  name: "LoginForm",
+  name: 'LoginForm',
   data() {
     return {
-      username: "",
-      password: "",
-    };
+      username: '',
+      password: '',
+    }
   },
   methods: {
     login() {
