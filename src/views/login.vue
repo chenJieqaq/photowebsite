@@ -1,96 +1,79 @@
 <template>
-  <div class="login" :style="'background-image:url(' + Background + ');'">
-    <div class="login-box">
-      <h2>登录</h2>
-      <form>
-        <div class="form-group">
-          <label for="username">用户名</label>
-          <input type="text" id="username" v-model="username" class="form-input" />
-        </div>
-        <div class="form-group2">
-          <label for="password">密码</label>
-          <input type="password" id="password" v-model="password" class="form-input" />
-        </div>
-        <button @click.prevent="login">登录</button>
-      </form>
-    </div>
+  <div class="login-box">
+    <el-card class="login-card" shadow="hover">
+      <div class="login-header">登录</div>
+      <div class="login-body">
+        <el-form ref="loginForm" :model="loginForm" :rules="loginRules" label-width="80px" class="login-form">
+          <el-form-item label="账号" prop="username">
+            <el-input v-model="loginForm.username" placeholder="请输入账号"></el-input>
+          </el-form-item>
+          <el-form-item label="密码" prop="password">
+            <el-input v-model="loginForm.password" placeholder="请输入密码" type="password"></el-input>
+          </el-form-item>
+          <el-form-item>
+            <el-button type="primary" @click="login">登录</el-button>
+          </el-form-item>
+        </el-form>
+      </div>
+    </el-card>
   </div>
 </template>
+
 <script>
-import Background from '../assets/images/background.jpg';
+import router from "@/router";
+
 export default {
-  Background: Background,
-  name: 'LoginForm',
   data() {
     return {
-      username: '',
-      password: '',
-    }
+      loginForm: {
+        username: 'wanqian',  //账号密码
+        password: '12345',
+      },
+      loginRules: {
+        username: [{ required: true, message: '请输入账号', trigger: 'blur' }],
+        password: [{ required: true, message: '请输入密码', trigger: 'blur' }],
+      },
+    };
   },
   methods: {
     login() {
-      // 登录逻辑
+      this.$refs.loginForm.validate(valid => {
+        if (valid) {
+          // 在这里处理登录逻辑
+          console.log('登录成功！');
+          router.push('/home');
+        } else {
+          console.log('表单验证失败！');
+        }
+      });
     },
   },
 };
 </script>
-<style>
-.login {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  background-size: cover;
-}
-.login-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-}
 
+<style scoped>
 .login-box {
-  background-color: #fff;
-  border-radius: 5px;
-  padding: 30px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
-
-h2 {
-  margin-top: 0;
-  margin-bottom: 20px;
-}
-
-.form-group {
-  margin-bottom: 20px;
   display: flex;
-  flex-direction: column;
-}
-.form-group2 {
-  margin-bottom: 40px;
-  display: flex;
-  flex-direction: column;
-}
-label {
-  display: block;
-  margin-bottom: 5px;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  /*background-color: #f5f5f5;*/
+  background-image: url("../assets/images/background.webp");
 }
 
-.form-input {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
+.login-card {
+  width: 400px;
 }
 
-button {
-  background-color: #4CAF50;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
+.login-header {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.login-form {
+  width: 300px;
+  margin: 0 auto;
 }
 </style>

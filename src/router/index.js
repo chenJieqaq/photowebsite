@@ -1,12 +1,12 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Login from '../views/login.vue'
-import Home from '../views/home/Home'
+import NarBar from '../views/home/NarBar'
 import logout from '../views/logout/logout.vue'
 import challenge from '../views/Challenge/index'
 import UserMessage from '../views/UserMessage/index'
 import realtime from "@/views/RealTime/index.vue";
-import Live from "@/views/home/live.vue";
+import HomePage from "@/views/home/HomePage";
 Vue.use(VueRouter)
 const whiteList = ['/login','/']
 const routes = [
@@ -22,19 +22,20 @@ const routes = [
   },
 
   {
-    path: "/", redirect: { path:'/home' },
+    path: "/", redirect: { path:'/login' },
 
   },
 
   {
-    path: "/home",   component: Home,
+    path: "/NarBar",   component: NarBar,
     children: [
       {
-        //直播拍照 路由
-        path: '/live',
-        name: 'live',
-        component: Live
+        //主页 路由
+        path: '/home',
+        name: 'home',
+        component: HomePage
       },
+
       {
         //实时拍照 路由
         path: '/realtime',

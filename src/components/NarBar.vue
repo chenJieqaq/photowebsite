@@ -2,7 +2,7 @@
   <nav class="nav-menu">
     <div></div>
     <ul>
-      <li><router-link to="/">首页</router-link></li>
+      <li><router-link to="/home">首页</router-link></li>
       <li><router-link to="/realtime">实时照片分享</router-link></li>
       <li><router-link to="/challenge">摄影挑战</router-link></li>
       <li><router-link to="/user">个人用户中心</router-link></li>

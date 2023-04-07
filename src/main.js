@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
-import jsCookie from 'js-cookie'
+
 
 import './plugins/element.js'
 import ElementUI from 'element-ui'
@@ -8,9 +8,6 @@ import 'element-ui/lib/theme-chalk/index.css'
 
 import VueMeta from 'vue-meta';
 import router from './router/index'
-
-
-// import  './assets/index.scss'
 
 Vue.use(VueMeta, {
   refreshOnceOnNavigation: true
