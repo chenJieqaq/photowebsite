@@ -1,17 +1,42 @@
 <template>
   <div>
-    <div class="tags">
-      <span v-for="tag in tags" :key="tag" class="tag">{{ tag }}</span>
-    </div>
-    <div class="photos">
-      <div v-for="photo in photos" :key="photo.id" class="photo">
-        <img :src="photo.src" alt="photo">
-        <div class="info">
-          <div class="user">{{ photo.user }}</div>
-          <div class="caption">{{ photo.caption }}</div>
-        </div>
-      </div>
-    </div>
+    <el-row :gutter="20">
+      <el-col :span="16">
+        <h3>热门话题</h3>
+        <el-card :body-style="{ padding: '10px' }" v-for="(item, index) in topics" :key="index">
+          <div>{{ item.title }}</div>
+          <div>{{ item.description }}</div>
+          <div>
+            <el-tag v-for="(tag, index) in item.tags" :key="index">{{ tag }}</el-tag>
+          </div>
+        </el-card>
+      </el-col>
+      <el-col :span="8">
+        <h3>热门摄影师</h3>
+        <el-card :body-style="{ padding: '10px' }" v-for="(item, index) in photographers" :key="index">
+          <div>{{ item.name }}</div>
+          <div>{{ item.location }}</div>
+          <div>{{ item.intro }}</div>
+          <div>
+            <el-button type="primary" size="small">关注</el-button>
+          </div>
+        </el-card>
+      </el-col>
+    </el-row>
+    <h3>最新摄影作品</h3>
+    <el-row :gutter="20">
+      <el-col :span="8" v-for="(item, index) in photos" :key="index">
+        <el-card :body-style="{ padding: '10px' }">
+          <img :src="item.src" alt="" style="width: 100%">
+          <div>{{ item.title }}</div>
+          <div>
+            <el-button type="text" size="small">点赞 {{ item.likes }}</el-button>
+            <el-button type="text" size="small">评论 {{ item.comments }}</el-button>
+            <el-button type="text" size="small">分享 {{ item.shares }}</el-button>
+          </div>
+        </el-card>
+      </el-col>
+    </el-row>
   </div>
 </template>
 
@@ -19,68 +44,85 @@
 export default {
   data() {
     return {
-      tags: ["校园", "风景", "科技", "职场"],
+      topics: [
+        {
+          title: '夏日海边',
+          description: '留住你我共同的回忆',
+          tags: ['海边', '夏天', '旅行'],
+        },
+        {
+          title: '城市夜景',
+          description: '感受城市的魅力',
+          tags: ['夜景', '城市', '摄影'],
+        },
+        {
+          title: '自然风光',
+          description: '与大自然亲近，感受它的美好',
+          tags: ['自然', '风光', '旅行'],
+        },
+      ],
+      photographers: [
+        {
+          name: '张三',
+          location: '北京市',
+          intro: '摄影师，擅长人像摄影',
+        },
+        {
+          name: '李四',
+          location: '上海市',
+          intro: '自然风光摄影师，多次获得国际大奖',
+        },
+        {
+          name: '王五',
+          location: '广州市',
+          intro: '城市建筑摄影师，拥有丰丰富的城市摄影作品',
+        },
+      ],
       photos: [
         {
-          id: 1,
-          src: "https://picsum.photos/id/1002/600/400",
-          user: "John Doe",
-          caption: "A beautiful sunset"
+          title: '城市夜景',
+          src: 'https://picsum.photos/200/300?random=1',
+          likes: 20,
+          comments: 5,
+          shares: 3,
         },
         {
-          id: 2,
-          src: "https://picsum.photos/id/101/600/400",
-          user: "Jane Doe",
-          caption: "A cute puppy"
+          title: '自然风光',
+          src: 'https://picsum.photos/200/300?random=2',
+          likes: 35,
+          comments: 10,
+          shares: 6,
         },
         {
-          id: 3,
-          src: "https://picsum.photos/id/102/600/400",
-          user: "Bob Smith",
-          caption: "A delicious meal"
-        }
-      ]
+          title: '夏日海边',
+          src: 'https://picsum.photos/200/300?random=3',
+          likes: 15,
+          comments: 3,
+          shares: 1,
+        },
+        {
+          title: '城市建筑',
+          src: 'https://picsum.photos/200/300?random=4',
+          likes: 25,
+          comments: 7,
+          shares: 4,
+        },
+        {
+          title: '美食摄影',
+          src: 'https://picsum.photos/200/300?random=5',
+          likes: 12,
+          comments: 2,
+          shares: 0,
+        },
+        {
+          title: '人像摄影',
+          src: 'https://picsum.photos/200/300?random=6',
+          likes: 30,
+          comments: 8,
+          shares: 5,
+        },
+      ],
     };
-  }
+  },
 };
 </script>
-
-<style>
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.tag {
-  margin-right: 10px;
-  margin-bottom: 10px;
-  padding: 5px 10px;
-  background-color: #ccc;
-  border-radius: 5px;
-  font-size: 14px;
-  cursor: pointer;
-}
-
-.photo {
-  margin: 20px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-}
-
-.photo img {
-  width: 100%;
-}
-
-.info {
-  padding: 10px;
-  background-color: #fff;
-}
-
-.user {
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-.caption {
-  font-size: 14px;
-}
-</style>

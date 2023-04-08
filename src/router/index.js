@@ -1,12 +1,12 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Login from '../views/login.vue'
-import NarBar from '../views/home/NarBar'
 import logout from '../views/logout/logout.vue'
 import challenge from '../views/Challenge/index'
 import UserMessage from '../views/UserMessage/index'
 import realtime from "@/views/RealTime/index.vue";
 import HomePage from "@/views/home/HomePage";
+import Layout from "@/views/home/Layout";
 Vue.use(VueRouter)
 const whiteList = ['/login','/']
 const routes = [
@@ -27,7 +27,7 @@ const routes = [
   },
 
   {
-    path: "/NarBar",   component: NarBar,
+    path: "/Layout",   component: Layout,
     children: [
       {
         //主页 路由

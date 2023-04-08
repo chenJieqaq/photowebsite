@@ -14,13 +14,11 @@
 html, body {
   height: 100%;
 }
-
 .container {
   position: relative;
   height: 100%;
   display: flex;
   flex-direction: column;
-
 }
 
 header {
