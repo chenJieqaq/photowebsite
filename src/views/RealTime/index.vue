@@ -2,6 +2,7 @@
   <div>
     <el-row :gutter="20">
       <el-col :span="16">
+
         <h3>热门话题</h3>
         <el-card :body-style="{ padding: '10px' }" v-for="(item, index) in topics" :key="index">
           <div>{{ item.title }}</div>
@@ -12,6 +13,7 @@
         </el-card>
       </el-col>
       <el-col :span="8">
+
         <h3>热门摄影师</h3>
         <el-card :body-style="{ padding: '10px' }" v-for="(item, index) in photographers" :key="index">
           <div>{{ item.name }}</div>
@@ -23,6 +25,7 @@
         </el-card>
       </el-col>
     </el-row>
+
     <h3>最新摄影作品</h3>
     <el-row :gutter="20">
       <el-col :span="8" v-for="(item, index) in photos" :key="index">
@@ -37,6 +40,7 @@
         </el-card>
       </el-col>
     </el-row>
+
   </div>
 </template>
 

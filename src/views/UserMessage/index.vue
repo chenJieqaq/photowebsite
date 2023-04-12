@@ -8,9 +8,9 @@
     </div>
     <div class="user-profile__bio">
       <p class="user-profile__bio-text">{{form.message}}</p>
-      <button class="user-profile__edit-btn" @click="dialogFormVisible = true">Edit Profile</button>
+      <button class="user-profile__edit-btn" @click="dialogFormVisible = true">编辑</button>
 <!--      个人信息界面-->
-      <el-dialog title="收货地址" :visible.sync="dialogFormVisible">
+      <el-dialog title="个人信息" :visible.sync="dialogFormVisible">
         <el-form :model="form">
           <el-form-item label="用户名" :label-width="formLabelWidth">
             <el-input v-model="form.name" autocomplete="off"></el-input>

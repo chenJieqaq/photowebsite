@@ -41,7 +41,7 @@ export default {
         if (valid) {
           // 在这里处理登录逻辑
           console.log('登录成功！');
-          router.push('/home');
+          router.push('/home');  //跳转页面
         } else {
           console.log('表单验证失败！');
         }

@@ -2,7 +2,7 @@
   <div class="challenge-container">
     <div class="challenge-header">
       <h2>{{challengeTitle}}</h2>
-
+<!--分享作品-->
       <div class="share-button">
         <i class="icon-share"></i>
         <span class="text" @click="showModal = true">分享作品</span>
@@ -42,6 +42,7 @@
 
 
     </div>
+
     <p>{{challengeDescription}}</p>
     <div class="challenge-gallery">
       <div v-for="photo in photos" :key="photo.id" class="photo-card">
