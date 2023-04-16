@@ -7,6 +7,7 @@ import UserMessage from '../views/UserMessage/index'
 import realtime from "@/views/RealTime/index.vue";
 import HomePage from "@/views/home/HomePage";
 import Layout from "@/views/home/Layout";
+import Workbench from "@/views/workbench";
 Vue.use(VueRouter)
 const whiteList = ['/login','/']
 const routes = [
@@ -35,7 +36,12 @@ const routes = [
         name: 'home',
         component: HomePage
       },
-
+      {
+        //主页 路由
+        path: '/workbench',
+        name: 'workbench',
+        component: Workbench
+      },
       {
         //实时拍照 路由
         path: '/realtime',
