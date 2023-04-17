@@ -1,17 +1,8 @@
 <template>
-  <div class="workbench">
-    <!-- 相册展示区域 -->
-    <div class="album-display">
-      <img :src="firstAlbumImg" style="  width: 70%;
-  height: 60%;
-  margin: auto; margin-top: 0%;
-  margin-left: 0%;
- "  alt="First Album">
-      <img :src="secondAlbumImg"  style="
-  margin-top: -54%;
-  width: 30%;
-  height: 30%;" alt="Second Album">
-
+  <div class="container">
+    <div v-for="(album, index) in albums" :key="index" class="album">
+      <div class="album-thumbnail">
+        <img :src="album.thumbnail" alt="">
         <div class="album-count">{{ album.count }}</div>
       </div>
       <div class="album-title">{{ album.title }}</div>
@@ -52,7 +43,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 /* 清除默认样式 */
 * {
   margin: 0;
