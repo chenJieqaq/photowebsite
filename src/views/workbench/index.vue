@@ -1,6 +1,6 @@
 <template>
   <div class="workbench">
-    <!-- 相册展示区域 -->
+    <!-- 相册展示区域 -->2
     <div class="album-display">
       <img :src="firstAlbumImg" style="  width: 70%;
   height: 60%;
