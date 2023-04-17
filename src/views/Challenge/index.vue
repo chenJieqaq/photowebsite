@@ -135,7 +135,7 @@ handleSubmit() {
 }
 </script>
 
-<style>
+<style scoped>
 /* Add styling as needed */
 .challenge-header {
   display: flex;
