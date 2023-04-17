@@ -3,7 +3,6 @@
     <div v-for="(album, index) in albums" :key="index" class="album">
       <div class="album-thumbnail">
         <img :src="album.thumbnail" alt="">
-
         <div class="album-count">{{ album.count }}</div>
       </div>
       <div class="album-title">{{ album.title }}</div>
@@ -44,7 +43,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 /* 清除默认样式 */
 * {
   margin: 0;
