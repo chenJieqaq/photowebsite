@@ -8,6 +8,11 @@ import realtime from "@/views/RealTime/index.vue";
 import HomePage from "@/views/home/HomePage";
 import Layout from "@/views/home/Layout";
 import Workbench from "@/views/workbench";
+import Picture from "@/views/workbench/picture";
+import Picture2 from "@/views/workbench/picture2";
+import Picture3 from "@/views/workbench/picture3";
+import Picture4 from "@/views/workbench/picture4";
+
 Vue.use(VueRouter)
 const whiteList = ['/login','/']
 const routes = [
@@ -37,10 +42,38 @@ const routes = [
         component: HomePage
       },
       {
-        //主页 路由
+        //工作台 路由
         path: '/workbench',
         name: 'workbench',
         component: Workbench
+      },
+      {
+        //相册 路由
+        path: '/picture/:id',
+        name: 'picture',
+        component: Picture
+
+      },
+      {
+        //相册 路由
+        path: '/picture2/:id',
+        name: 'picture2',
+        component: Picture2
+
+      },
+      {
+        //相册 路由
+        path: '/picture3/:id',
+        name: 'picture3',
+        component: Picture3
+
+      },
+      {
+        //相册 路由
+        path: '/picture4/:id',
+        name: 'picture4',
+        component: Picture4
+
       },
       {
         //实时拍照 路由
