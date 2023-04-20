@@ -5,7 +5,7 @@
 </div>
 </template>
 <script>
-import VueWaterfall from 'vue-waterfall'
+
 export default {
   // eslint-disable-next-line vue/no-unused-components
   components: { VueWaterfall },
