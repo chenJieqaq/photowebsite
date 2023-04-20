@@ -8,7 +8,7 @@
 
 export default {
   // eslint-disable-next-line vue/no-unused-components
-  components: { VueWaterfall },
+
   data(){
     return {
       imgList: [],
@@ -18,7 +18,6 @@ export default {
   mounted(){
     console.log(this.imgUrl)
     const imgList = [];
-
     const files = require.context('../../assets/images', true, /\.*\.jpg|jpeg|png$/).keys();
     files.forEach((e) =>{
       imgList.push(require('../../assets/images' + e.slice(1)));
