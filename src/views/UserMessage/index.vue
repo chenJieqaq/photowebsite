@@ -1,14 +1,20 @@
 <template>
   <div class="user-profile">
+
+
     <div class="user-profile__header">
       <div class="user-profile__avatar">
         <img src="../../assets/images/kabi.png" alt="avatar">
       </div>
       <h2 class="user-profile__username" >{{form.name}}</h2>
     </div>
+
+
     <div class="user-profile__bio">
       <p class="user-profile__bio-text">{{form.message}}</p>
+
       <button class="user-profile__edit-btn" @click="dialogFormVisible = true">编辑</button>
+
 <!--      个人信息界面-->
       <el-dialog title="个人信息" :visible.sync="dialogFormVisible">
         <el-form :model="form">
@@ -24,18 +30,20 @@
           <el-button type="primary" @click="dialogFormVisible = false">确 定</el-button>
         </div>
       </el-dialog>
+
+
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  data() {
+  data () {
     return {
       dialogFormVisible: false,
       form: {
         name: 'John Doe',
-        message:'热爱捕捉自然之美的热情摄影师.', //个人标签
+        message: '热爱捕捉自然之美的热情摄影师.', // 个人标签
         region: '',
         delivery: false,
         type: [],
